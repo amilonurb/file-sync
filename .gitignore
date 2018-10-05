@@ -1,7 +1,4 @@
-
-# Created by https://www.gitignore.io/api/netbeans
-
-### NetBeans ###
+# NetBeans
 nbproject/
 nbproject/private/
 build/
@@ -14,6 +11,3 @@ nbdist/
 bin/
 .classpath
 .project
-
-
-# End of https://www.gitignore.io/api/netbeans
