@@ -2,7 +2,8 @@
 Atividade Prática Supervisionada da disciplina **_Desenvolvimento de Aplicações Distribuídas_**.
 
 ## Descrição
-Sistema desktop que tem, como principal objetivo, sincronizar arquivos que estejam distribuídos entre dois computadores, isto é, deve permitir _download_ e _upload_ simultâneo de arquivos.
+Sistema desktop que tem, como principal objetivo, sincronizar arquivos que estejam distribuídos entre computadores.
+Resumindo: deve permitir _download_ e _upload_ simultâneo de arquivos entre o **Servidor** e múltiplos **Clientes**.
 
 ## Tecnologias Java
 * _Swing_ (GUI)
