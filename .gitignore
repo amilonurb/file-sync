@@ -13,3 +13,4 @@ manifest.mf
 bin/
 .classpath
 .project
+.settings/
