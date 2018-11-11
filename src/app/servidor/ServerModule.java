@@ -1,4 +1,4 @@
-package app.server;
+package app.servidor;
 
 import app.arquivo.Arquivo;
 import java.io.BufferedInputStream;

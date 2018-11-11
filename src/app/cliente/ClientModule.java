@@ -284,14 +284,14 @@ public class ClientModule extends JFrame {
 
     private void enviarArquivo() {
         if (arquivoValido()) {
-            try {
-                Socket socket = new Socket(campoIP.getText().trim(), Integer.parseInt(campoPorta.getText().trim()));
+            String ip = this.campoIP.getText().trim();
+            Integer porta = Integer.parseInt(campoPorta.getText().trim());
+            try (Socket socket = new Socket(ip, porta)) {
                 BufferedOutputStream output = new BufferedOutputStream(socket.getOutputStream());
                 byte[] byteArray = serializarArquivo();
                 output.write(byteArray);
                 output.flush();
                 output.close();
-                socket.close();
             } catch (IOException ex) {
                 Logger.getLogger(ClientModule.class.getName()).log(Level.SEVERE, null, ex);
             }
