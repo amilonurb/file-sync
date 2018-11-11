@@ -1,10 +1,12 @@
-package app;
+package app.tests;
 
+import app.arquivo.Arquivo;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -13,6 +15,7 @@ public class _Server {
     public static void main(String args[]) {
         try {
             ServerSocket srvSocket = new ServerSocket(5566);
+            System.out.println(InetAddress.getLocalHost());
             System.out.println("Aguardando envio de arquivo ...");
             Socket socket = srvSocket.accept();
 

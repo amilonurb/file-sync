@@ -1,6 +1,6 @@
 package app.server;
 
-import app.Arquivo;
+import app.arquivo.Arquivo;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
@@ -37,12 +37,15 @@ public class ServerModule {
                 System.out.println("Aguardando envio de arquivo...");
                 socket = serverSocket.accept();
                 System.out.println("Conexão aberta: " + socket);
+                
                 byte[] objectAsByte = new byte[socket.getReceiveBufferSize()];
                 buffer = new BufferedInputStream(socket.getInputStream());
+                buffer.read(objectAsByte);
+                
                 arquivo = (Arquivo) getObjectFromByte(objectAsByte);
-                String diretorio = arquivo.getDiretorioDestino().endsWith("/")
+                String diretorio = arquivo.getDiretorioDestino().endsWith("\\")
                         ? arquivo.getDiretorioDestino() + arquivo.getNome()
-                        : arquivo.getDiretorioDestino() + "/" + arquivo.getNome();
+                        : arquivo.getDiretorioDestino() + "\\" + arquivo.getNome();
 
                 System.out.println("Escrevendo arquivo em: " + diretorio);
                 fileOutputStream = new FileOutputStream(diretorio);

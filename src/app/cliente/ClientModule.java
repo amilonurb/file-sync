@@ -1,6 +1,6 @@
 package app.cliente;
 
-import app.Arquivo;
+import app.arquivo.Arquivo;
 import java.awt.EventQueue;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;

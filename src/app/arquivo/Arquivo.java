@@ -1,4 +1,4 @@
-package app;
+package app.arquivo;
 
 import java.io.Serializable;
 import java.util.Date;

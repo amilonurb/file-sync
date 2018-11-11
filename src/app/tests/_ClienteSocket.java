@@ -1,5 +1,6 @@
-package app;
+package app.tests;
 
+import app.arquivo.Arquivo;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
