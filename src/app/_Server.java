@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class _Server {
 
     public static void main(String args[]) {
         try {
@@ -22,9 +22,9 @@ public class Server {
 
             Arquivo arquivo = (Arquivo) getObjectFromByte(objectAsByte);
 
-            String dir = arquivo.getDiretorioDestino().endsWith("/") ? 
+            String dir = arquivo.getDiretorioDestino().endsWith("\\") ? 
                     arquivo.getDiretorioDestino() + arquivo.getNome() : 
-                    arquivo.getDiretorioDestino() + "/" + arquivo.getNome();
+                    arquivo.getDiretorioDestino() + "\\" + arquivo.getNome();
             
             System.out.println("Escrevendo arquivo em: " + dir);
 

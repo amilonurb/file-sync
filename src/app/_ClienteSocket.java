@@ -14,14 +14,14 @@ import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class ClienteSocket extends javax.swing.JFrame {
+public class _ClienteSocket extends javax.swing.JFrame {
 
     private final long tamanhoPermitidoKB = 5120; //Igual a 5MB
     private Arquivo arquivo;
 
     private static final long serialVersionUID = 1L;
 
-    public ClienteSocket() {
+    public _ClienteSocket() {
         initComponents();
     }
 
@@ -194,7 +194,7 @@ public class ClienteSocket extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(ClienteSocket::new);
+        java.awt.EventQueue.invokeLater(_ClienteSocket::new);
     }
 
     private javax.swing.JButton jButtonArquivo;
