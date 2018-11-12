@@ -12,6 +12,7 @@ dist/
 
 nbdist/
 
+test/
 tests/
 .nb-gradle/
 
