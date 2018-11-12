@@ -262,6 +262,7 @@ public class ClientModule extends JFrame {
                 inputStream.read(byteArquivo);
                 inputStream.close();
                 
+                System.out.println(arquivoSelecionado.length());
                 long kbSize = arquivoSelecionado.length() / 1024;
                 campoArquivoEscolhido.setText(arquivoSelecionado.getName());
                 campoTamanhoArquivo.setText(kbSize + " KB");
@@ -273,11 +274,12 @@ public class ClientModule extends JFrame {
                 arquivo.setTamanhoKB(kbSize);
                 arquivo.setIpDestino(campoIP.getText());
                 arquivo.setPortaDestino(campoPorta.getText());
+                System.out.println(campoDiretorio.getText().trim());
                 arquivo.setDiretorioDestino(campoDiretorio.getText().trim());
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(ClientModule.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             } catch (IOException ex) {
-                Logger.getLogger(ClientModule.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
         }
     }
@@ -293,7 +295,7 @@ public class ClientModule extends JFrame {
                 output.flush();
                 output.close();
             } catch (IOException ex) {
-                Logger.getLogger(ClientModule.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
         }
     }
@@ -313,7 +315,7 @@ public class ClientModule extends JFrame {
             objeto.writeObject(arquivo);
             return outputStream.toByteArray();
         } catch (IOException ex) {
-            Logger.getLogger(ClientModule.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         return null;
     }

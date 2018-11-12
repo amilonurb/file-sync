@@ -9,8 +9,6 @@ import java.io.ObjectInputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Bruno
@@ -32,20 +30,20 @@ public class ServerModule {
             System.out.println("Servidor iniciado.");
             System.out.println("InetAddress: " + InetAddress.getLocalHost());
             System.out.println("Porta: " + serverSocket.getLocalPort());
-            
+
             while (true) {
                 System.out.println("Aguardando envio de arquivo...");
                 socket = serverSocket.accept();
                 System.out.println("Conexão aberta: " + socket);
-                
+
                 byte[] objectAsByte = new byte[socket.getReceiveBufferSize()];
                 buffer = new BufferedInputStream(socket.getInputStream());
                 buffer.read(objectAsByte);
-                
-                arquivo = (Arquivo) getObjectFromByte(objectAsByte);
-                String diretorio = arquivo.getDiretorioDestino().endsWith("\\")
+
+                arquivo = getArquivoFromByte(objectAsByte);
+                String diretorio = arquivo.getDiretorioDestino().endsWith("/")
                         ? arquivo.getDiretorioDestino() + arquivo.getNome()
-                        : arquivo.getDiretorioDestino() + "\\" + arquivo.getNome();
+                        : arquivo.getDiretorioDestino() + "/" + arquivo.getNome();
 
                 System.out.println("Escrevendo arquivo em: " + diretorio);
                 fileOutputStream = new FileOutputStream(diretorio);
@@ -53,16 +51,18 @@ public class ServerModule {
                 fileOutputStream.close();
             }
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(ServerModule.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
-    private static Object getObjectFromByte(byte[] objectAsByte) throws IOException, ClassNotFoundException {
+    private static Arquivo getArquivoFromByte(byte[] objectAsByte) throws IOException, ClassNotFoundException {
         ByteArrayInputStream byteArray = new ByteArrayInputStream(objectAsByte);
         ObjectInputStream inputStream = new ObjectInputStream(byteArray);
-        Object objeto = inputStream.readObject();
+        Arquivo arquivo = null;
+        arquivo = (Arquivo) inputStream.readObject();
         byteArray.close();
         inputStream.close();
-        return objeto;
+        return arquivo;
     }
 }
