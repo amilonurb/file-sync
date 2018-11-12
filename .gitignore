@@ -1,16 +1,32 @@
-# NetBeans
+﻿# NetBeans
+
 nbproject/
+
 nbproject/private/
+
 build/
+
 nbbuild/
+
 dist/
+
 nbdist/
+
+test/
 .nb-gradle/
+
 build.xml
+
 manifest.mf
 
+
+
 # Eclipse
+
 bin/
+
 .classpath
+
 .project
+
 .settings/
